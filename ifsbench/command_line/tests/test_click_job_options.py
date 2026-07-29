@@ -94,6 +94,7 @@ def test_job_builder_from_flags(tmp_path, flags_in, ref_job):
 
     assert builder.build_job() == ref_job
 
+
 @pytest.mark.parametrize(
     'flags_in',
     [
@@ -101,8 +102,8 @@ def test_job_builder_from_flags(tmp_path, flags_in, ref_job):
         ('--bind', 'wall'),
         ('--bind', 4),
         ('--cpus_per_task', 0.2),
-        ('--distribute_remote', '5')
-    ]
+        ('--distribute_remote', '5'),
+    ],
 )
 def test_job_builder_invalid_values(tmp_path, flags_in):
     """
