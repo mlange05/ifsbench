@@ -148,7 +148,12 @@ def validate_result_identical(
                 f'First mismatch at ({idx}, {col}): {frame.loc[idx, col]} != {frame_ref.loc[idx, col]}.'
             )
 
-            with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+            with pd.option_context(
+                    'display.max_rows', None,
+                    'display.max_columns', None,
+                    'display.width', 200,
+                    'display.precision', 4
+            ):
                 debug(f'Result deviation (reference - result):\n{frame_ref - frame}')
 
     return is_identical
