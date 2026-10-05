@@ -149,7 +149,6 @@ def validate_result_identical(
             )
 
             with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-                debug(f'result data:\n{frame}')
-                debug(f'reference data:\n{frame_ref}')
+                debug(f'Result deviation (reference - result):\n{frame_ref - frame}')
 
     return is_identical
